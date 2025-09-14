@@ -1,0 +1,58 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Logs
+logs/
+*.log
+
+# Environment variables
+.env
+.env.*
+
+# Build output
+dist/
+build/
+
+# Lock files
+package-lock.json
+
+# TypeScript
+*.tsbuildinfo
+
+# Docker
+*.local
+*.pid
+docker-compose.override.yml
+
+# VSCode
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test coverage
+coverage/
+
+# Misc
+*.swp
+*.swo
+
+# Scripts
+scripts/setup.sh
+
+# Ignore backend build artifacts
+backend/dist/
+backend/node_modules/
+
+# Ignore test output
+backend/test/*.log
+
+Dockerfile
+.dockerignore
+docker-compose.yml
+docker-compose.dev.yml
+*.sh
