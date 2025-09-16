@@ -5,6 +5,9 @@ export type MessageLogDocument = HydratedDocument<MessageLog>;
 
 @Schema({ collection: 'message_logs', timestamps: { createdAt: 'timestamp', updatedAt: 'processedAt' } })
 export class MessageLog {
+	@Prop({ type: String, required: true, unique: true, index: true })
+	id: string;
+
 	@Prop({ type: String, required: true })
 	userId: string;
 
@@ -31,6 +34,13 @@ export class MessageLog {
 
 	@Prop({ type: Number })
 	processingTimeMs: number;
+
+	// Managed by Mongoose timestamps option
+	@Prop({ type: Date })
+	timestamp: Date; // createdAt
+
+	@Prop({ type: Date })
+	processedAt: Date; // updatedAt
 }
 
 export const MessageLogSchema = SchemaFactory.createForClass(MessageLog);
