@@ -132,6 +132,23 @@ NODE_ENV=development
 PORT=3000
 ```
 
+### Userbot (send/receive as your Telegram user)
+
+Add these if you want to auto-reply from your personal account:
+
+```env
+# Telegram Userbot (MTProto)
+TG_API_ID=your_api_id
+TG_API_HASH=your_api_hash
+TG_PHONE=+1234567890
+# If you have 2FA password set in Telegram cloud
+TG_2FA_PASSWORD=
+# Optional: session string for headless login
+TG_STRING_SESSION=
+```
+
+When enabled, the `UserbotService` logs in to your Telegram user account, listens to incoming DMs, enqueues them through the same queues, and delivers replies back from your account when `platform=userbot`.
+
 ### Telegram Bot Setup
 
 1. **Create a bot with BotFather**

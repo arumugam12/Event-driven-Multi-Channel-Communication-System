@@ -3,6 +3,7 @@ export const PLATFORMS = {
   WHATSAPP: 'whatsapp',
   INSTAGRAM: 'instagram',
   DISCORD: 'discord',
+  USERBOT: 'userbot',
 } as const;
 
 export const MESSAGE_STATUS = {

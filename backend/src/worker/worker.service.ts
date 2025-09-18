@@ -5,6 +5,7 @@ import { Job } from 'bull';
 import { QueueService, MessageProcessingJob, AIResponseJob, MessageDeliveryJob } from '../queue/queue.service';
 import { DatabaseService } from '../config/db.service';
 import { TelegramService } from '../telegram/telegram.service';
+import { UserbotService } from '../userbot/userbot.service';
 import { QUEUE_NAMES, AI_CONFIG, PLATFORMS } from '../common/constants';
 import { 
   isSpamMessage, 
@@ -26,6 +27,7 @@ export class WorkerService {
     private queueService: QueueService,
     private databaseService: DatabaseService,
     private telegramService: TelegramService,
+    private userbotService: UserbotService,
   ) {
     const apiKey = this.configService.get<string>('OPENAI_API_KEY');
     if (!apiKey) {
@@ -183,6 +185,9 @@ export class WorkerService {
         case PLATFORMS.TELEGRAM:
           deliveryResult = await this.deliverTelegramMessage(userId, response, metadata);
           break;
+        case PLATFORMS.USERBOT:
+          deliveryResult = await this.deliverUserbotMessage(userId, response, metadata);
+          break;
         case PLATFORMS.WHATSAPP:
           // TODO: Implement WhatsApp delivery
           throw new Error('WhatsApp delivery not implemented yet');
@@ -220,6 +225,11 @@ export class WorkerService {
     const formattedResponse = this.telegramService.formatMessage(response, metadata.from);
     
     return await this.telegramService.sendMessage(chatId, formattedResponse);
+  }
+
+  private async deliverUserbotMessage(userId: string, response: string, metadata: any): Promise<any> {
+    const peerId = metadata.peerId || userId;
+    return await this.userbotService.sendMessageToPeer(peerId, response);
   }
 
   private getSystemPrompt(platform: string, userContext: any): string {

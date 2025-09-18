@@ -4,6 +4,7 @@ import { WorkerService } from './worker.service';
 import { QueueModule } from '../queue/queue.module';
 import { DatabaseModule } from '../config/db.module';
 import { TelegramModule } from '../telegram/telegram.module';
+import { UserbotModule } from '../userbot/userbot.module';
 import { QUEUE_NAMES } from '../common/constants';
 
 @Module({
@@ -16,6 +17,7 @@ import { QUEUE_NAMES } from '../common/constants';
     QueueModule,
     DatabaseModule,
     TelegramModule,
+    UserbotModule,
   ],
   providers: [WorkerService],
   exports: [WorkerService],

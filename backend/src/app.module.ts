@@ -9,6 +9,7 @@ import { QueueModule } from './queue/queue.module';
 import { TelegramModule } from './telegram/telegram.module';
 import { WorkerModule } from './worker/worker.module';
 import { HealthModule } from './health/health.module';
+import { UserbotModule } from './userbot/userbot.module';
 
 @Module({
   imports: [
@@ -37,6 +38,7 @@ import { HealthModule } from './health/health.module';
     QueueModule,
     TelegramModule,
     WorkerModule,
+    UserbotModule,
     HealthModule,
   ],
   controllers: [],
