@@ -12,7 +12,8 @@ An AI-powered communication system that integrates with multiple platforms (Tele
 - **Spam Detection**: Built-in spam filtering
 - **Rate Limiting**: Configurable rate limits per user
 - **Health Monitoring**: Comprehensive health checks and metrics
-- **Docker Support**: Easy deployment with Docker Compose
+<!-- - **Docker Support**: Easy deployment with Docker Compose -->
+
 - **Error Handling**: Robust error handling with retry mechanisms
 
 ## 🏗️ Architecture
@@ -51,8 +52,10 @@ An AI-powered communication system that integrates with multiple platforms (Tele
 - Node.js 18+
 - MongoDB 6+
 - Redis 6+
-- Docker & Docker Compose (optional)
-- Telegram Bot Token
+<!-- 
+- Docker & Docker Compose (optional) -->
+
+- Telegram Token
 - OpenAI API Key
 
 ## 🛠️ Installation
