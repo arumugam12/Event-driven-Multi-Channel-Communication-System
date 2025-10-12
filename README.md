@@ -56,7 +56,7 @@ An AI-powered communication system that integrates with multiple platforms (Tele
 - OpenAI API Key
 
 ## 🛠️ Installation
-
+<!-- 
 ### Option 1: Docker (Recommended)
 
 1. **Clone the repository**
@@ -79,8 +79,8 @@ An AI-powered communication system that integrates with multiple platforms (Tele
    # For production
    docker-compose up -d
    ```
-
-### Option 2: Manual Installation
+-->
+### Option 1: Manual Installation
 
 1. **Install dependencies**
    ```bash
@@ -148,7 +148,7 @@ TG_STRING_SESSION=
 ```
 
 When enabled, the `UserbotService` logs in to your Telegram user account, listens to incoming DMs, enqueues them through the same queues, and delivers replies back from your account when `platform=userbot`.
-
+<!--
 ### Telegram Bot Setup
 
 1. **Create a bot with BotFather**
@@ -162,6 +162,7 @@ When enabled, the `UserbotService` logs in to your Telegram user account, listen
         -H "Content-Type: application/json" \
         -d '{"url": "https://yourdomain.com/api/webhook/telegram"}'
    ```
+-->
 
 ## 📡 API Endpoints
 
@@ -203,7 +204,7 @@ npm run test:e2e
 - Application health: `GET /api/health`
 - Queue statistics: `GET /api/health/stats`
 - Redis Commander: `http://localhost:8081` (if enabled)
-
+<!-- 
 ### Logs
 ```bash
 # View application logs
@@ -212,6 +213,7 @@ docker-compose logs -f app
 # View all logs
 docker-compose logs -f
 ```
+-->
 
 ## 🚀 Deployment
 
@@ -224,12 +226,12 @@ docker-compose logs -f
    DB_HOST=your_production_db_host
    # ... other production configs
    ```
-
+<!-- 
 2. **Deploy with Docker**
    ```bash
    docker-compose up -d
    ```
-
+-->
 3. **Set up reverse proxy** (nginx/traefik)
 4. **Configure SSL certificates**
 5. **Set up monitoring and alerting**
